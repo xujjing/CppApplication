@@ -1,0 +1,33 @@
+1. 创建以下文件夹：
+    include  头文件
+    lib      库文件
+    src      源文件
+
+2. 创建c_cpp_properties.json配置文件
+    ctrl+shift+p  ->  c/c++ 配置文件
+
+3. 创建CppApplication.code-workspace 工作区
+    击顶部菜单栏的File-->save Workspace as...
+
+4. 编写 cpp 源文件
+
+5. 创建 CMakeLists.txt配置文件
+
+    a. 引入头文件：
+        include_directories(
+            ${PROJECT_SOURCE_DIR}/include
+        )
+
+    b. 引入库文件：
+       link_directories(
+            ${PROJECT_SOURCE_DIR}/lib
+        )
+
+    c. 连接库文件
+        link_libraries(libcrypto.a)
+        link_libraries(libssl.a)
+
+    d. 添加源文件生成运行程序
+        aux_source_directory(./src DIR_SRCS)
+        add_executable(application ${DIR_SRCS})
+  
